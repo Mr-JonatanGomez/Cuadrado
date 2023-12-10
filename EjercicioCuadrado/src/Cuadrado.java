@@ -24,6 +24,7 @@ public class Cuadrado {
 
     private static int cuadradoM[][];
     private static int N;
+    private static int numero;
     private static boolean repetido;
 
 
@@ -43,11 +44,18 @@ public class Cuadrado {
 
             for (int j = 0; j < cuadradoM.length; j++) {//columnas
                 repetido = false;
-                int numero = (int) (Math.random() * (N * N) + 1);
-                if (numero == cuadradoM[j][i]) {
-                    repetido = true;
-                    break;
-                }
+
+                do {
+                    numero = (int) (Math.random() * (N * N) + 1);
+                    if (numero == cuadradoM[j][i]) {
+                        repetido = true;
+                        break;
+                    }
+                }while (repetido=true);
+
+
+
+
 
                 if (!repetido) {
                     cuadradoM[j][i] = numero;
