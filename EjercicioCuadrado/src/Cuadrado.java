@@ -24,8 +24,6 @@ public class Cuadrado {
 
     private static int cuadradoM[][];
     private static int N;
-    private static int numero;
-    private static boolean repetido;
 
 
     public static void main(String[] args) {
@@ -33,41 +31,42 @@ public class Cuadrado {
         System.out.println("Ingresa nº impar 3,5,7 o 9 para el sudoku");
         Scanner scanner = new Scanner(System.in);
         N = scanner.nextInt();
-
         cuadradoM = new int[N][N];
 
         recorrerCuadrado();
     }
 
     public static void recorrerCuadrado() {
-        for (int i = 0; i < cuadradoM.length; i++) { //filas
 
+        for (int i = 0; i < cuadradoM.length; i++) { //filas
             for (int j = 0; j < cuadradoM.length; j++) {//columnas
-                repetido = false;
+                boolean repetido;
+                int numero;
 
                 do {
                     numero = (int) (Math.random() * (N * N) + 1);
-                    if (numero == cuadradoM[j][i]) {
-                        repetido = true;
-                        break;
+                    repetido= false;
+                    for (int k = 0; k < cuadradoM.length; k++) {
+                        for (int l = 0; l < cuadradoM.length; l++) {
+                            if (numero == cuadradoM[k][l]) {
+                                repetido = true;
+                            }
+                        }
+                        if (repetido) {
+                        }
                     }
-                }while (repetido=true);
 
+                } while (repetido); //se genera numero, y en do buscamos con for en j&&!rep, y en i&&!rep
 
-
-
-
-                if (!repetido) {
-                    cuadradoM[j][i] = numero;
-                    System.out.print(cuadradoM[j][i] + " ");
+                cuadradoM[i][j] = numero;
                     /*
                     System.out.println("fila: " + i + ", columna: " + j + ", numero ocupado: " + numero);
                     con este sout imprimo en letras el cuadrado (fila 0 columna 0...etc)
                     */
-                }
-
+                System.out.print(cuadradoM[i][j] + "\t");
+                //fin de ronda y vuelta a otra si todavia seguimos en misma fila, si no cambiamos
             }
-            System.out.println();//salto linea??
+            System.out.println();//salto linea
         }
     }
 }
