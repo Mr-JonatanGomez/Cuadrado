@@ -21,10 +21,10 @@ public class Cuadrado {
 
 
 */
-    Scanner scanner = new Scanner(System.in);
 
     private static int cuadradoM[][];
     private static int N;
+    private static boolean repetido;
 
 
     public static void main(String[] args) {
@@ -42,20 +42,20 @@ public class Cuadrado {
         for (int i = 0; i < cuadradoM.length; i++) { //filas
 
             for (int j = 0; j < cuadradoM.length; j++) {//columnas
-                boolean repetido = false;
-                int numero = (int) (Math.random() * (N*N) + 1);
-                if (cuadradoM[j][i] == numero) {
+                repetido = false;
+                int numero = (int) (Math.random() * (N * N) + 1);
+                if (numero == cuadradoM[j][i]) {
                     repetido = true;
                     break;
                 }
 
                 if (!repetido) {
-                    cuadradoM[j][i]=numero;
-                    System.out.print(cuadradoM[j][i]+" ");
+                    cuadradoM[j][i] = numero;
+                    System.out.print(cuadradoM[j][i] + " ");
                     /*
                     System.out.println("fila: " + i + ", columna: " + j + ", numero ocupado: " + numero);
                     con este sout imprimo en letras el cuadrado (fila 0 columna 0...etc)
-                     */
+                    */
                 }
 
             }
