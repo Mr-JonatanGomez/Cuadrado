@@ -9,7 +9,7 @@ public class IntentandoMagico {
     static int aleatorio;
 
     static int sumaMagica = dimension * ((dimension * dimension) + 1) / 2;//formula suma magica real : dimension*((dimension*dimension)+1)/2
-
+    static int sumaFila1 = 0, sumaFila2 = 0, sumaFila3 = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,40 +27,23 @@ public class IntentandoMagico {
         rellenarCuadrado();
         mostrarCuadrado();
 
-
     }
 
     //int sumaCol1 = 0, sumaCol2 = 0, sumaCol3 =0;
 
     //metodo MAGICOFILA mi nimizado
-    /*public static void magicoFila() {
-        int sumaFila1 = 0, sumaFila2 = 0, sumaFila3 = 0;
+    public static void sumaFilas() {
+sumaFila1 += magicSquare.length;// lo mismo que sumaFila1 = sumaFila1 + magicSquare.length
 
-        do {
-            for (int i = 0; i < magicSquare.length; i++) {
-                sumaFila1 += magicSquare[0][i];
-            }
-            for (int i = 0; i < magicSquare.length; i++) {
-                sumaFila2 += magicSquare[1][i];
-            }
-            for (int i = 0; i < magicSquare.length; i++) {
-                sumaFila3 += magicSquare[2][i];
-            }
-            if (sumaFila1 == sumaFila2 && sumaFila1 == sumaFila3) {
-                System.out.println("MAGICOOOOOO");
-            } else {
-                rellenarCuadrado();
-            }
-        } while (sumaFila1 != sumaMagica && sumaFila2 != sumaMagica && sumaFila3 != sumaMagica);
-    }*/
+    }
 
     public static void rellenarCuadrado() {
         for (int i = 0; i < magicSquare.length; i++) {
             for (int j = 0; j < magicSquare.length; j++) {
                 do {
-                    aleatorio = (int) (Math.random() * (dimension * dimension * dimension)) + 1;// cambiar a dmension el ultimo
+                    aleatorio = (int) (Math.random() * (dimension * dimension * 1)) + 1;// cambiar a dmension el ultimo
                 } while (numeroRepetido(aleatorio) == true);//hacer mientras metodoRepetido(aleatorio es donde buscamos repetido)
-                magicSquare[i][j] = aleatorio;
+                magicSquare[i][j] = aleatorio;// cuando repetido ya no es true, guardamos
             }
 
         }
